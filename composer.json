@@ -1,0 +1,5 @@
+{
+    "require": {
+        "rootscratch/psgc": "^1.1"
+    }
+}
