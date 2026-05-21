@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+:root{
+    --bg-color: #210124;
+    --second-bg-color: #394F49;
+    --third-bg-color: #EFDD8D;
+    --fourth-bg-color: #241D01;
+    --fifth-bg-color: rgba(0, 19, 14);
+    --text-color: #EFDD8D;
+    --second-text-color: #F4FDAF;
+    --third-text-color: #394F49;
+    --main-color: #65743A;
+}
+html{
+    font-size: 60%;
+    overflow-x: hidden;
+}
+body{
+    background: var(--second-bg-color);
+}
+h1{
+    font-family: "Syne", sans-serif;
+}
+h2{
+    font-family: "Poppins", sans-serif;
+}
+h3{
+    font-family: "Poppins", sans-serif;
+}
+p{
+    font-family: "Poppins", sans-serif;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0.9rem 10%;
+    background-color: var(--fifth-bg-color);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+#menu-icon{
+    font-size: 3.5rem;
+    color: var(--main-color);
+    display: none;
+}
+.logo{
+    font-family: "Syne", sans-serif;
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+span{
+    background: linear-gradient(
+        90deg,
+        #EFDD8D 15%,
+        #F4FDAF 70%,
+        #65743A 100%
+    );
+    background-clip: text;
+    color: transparent;
+}
+.navbar a{
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    border-bottom: 3px solid transparent;
+}
+.navbar a:hover{
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+.gradient-btn{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+    border-radius: 3rem;
+    background: linear-gradient(
+        90deg, 
+        #EFDD8D 10%,
+        #F4FDAF 100%
+    );
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    color: var(--fourth-bg-color);
+    border: none;
+    text-wrap: nowrap;
+}
+.gradient-btn:hover{
+    transform: scale(1.05);
+}
+section{
+    min-height: 100vh;
+    padding: 10rem 10%;
+}
+.home{
+    background:
+        linear-gradient(
+            to left,
+            rgba(33, 1, 36, 0.9),
+            rgba(0, 19, 14, 0.8),
+            rgba(4, 45, 34, 0.7),
+            rgba(56, 76, 0, 0.3)
+        ),
+        url("../images/dashboard-background.jpg");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 5%;
+}
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    flex: 0 0 40%;
+    width: 40%;
+}
+.home-content h1{
+    font-size: 7rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+.home-content h3{
+    margin: 1rem 0;
+    font-size: 3rem;
+}
+.home-content p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+}
+.home-img img{
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    transition: 0.4s ease-in-out;
+}
+.home-img img:hover{
+     box-shadow: 0 0 25px var(--main-color),
+                 0 0 50px var(--main-color),
+                 0 0 100px var(--main-color);
+}
