@@ -1,5 +1,8 @@
 {
     "require": {
-        "rootscratch/psgc": "^1.1"
+        "rootscratch/psgc": "^1.1",
+        "league/oauth2-google": "^5.0",
+        "firebase/php-jwt": "^7.0",
+        "vlucas/phpdotenv": "^5.6"
     }
 }

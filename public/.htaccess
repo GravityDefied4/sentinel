@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Route auth paths to their physical files
+RewriteRule ^auth/login$    auth/login.php    [L]
+RewriteRule ^auth/callback$ auth/callback.php [L]
+RewriteRule ^auth/logout$   auth/logout.php   [L]
