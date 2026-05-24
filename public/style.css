@@ -336,7 +336,7 @@ section{
 }
 .contact ul {
     margin-top: 1.5rem;
-    list-style: disc;
+    list-style-type: none;
     padding-left: 2rem;
 }
 .contact a {
@@ -399,6 +399,89 @@ section{
     width: 45vw;
 }
 
+.contact-wrapper {
+    display: flex;
+    gap: 6rem;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1100px;
+}
+.contact-wrapper .home-content {
+    flex: 1;
+    min-width: 260px;
+    padding: 0;
+}
+.contact-form-container {
+    flex: 1.2;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.6rem;
+    padding: 3rem 2.8rem;
+    backdrop-filter: blur(14px);
+}
+.contact-form-container h2 {
+    font-size: 2.4rem;
+    color: var(--text-color);
+    margin-bottom: 2.2rem;
+    font-weight: 600;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.8rem;
+}
+.form-group label {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    color: var(--second-text-color);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem;
+    padding: 1rem 1.4rem;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.8rem;
+    color: var(--text-color);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--second-text-color);
+    opacity: 0.6;
+}
+.form-group select option {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 3px rgba(47, 93, 140, 0.2);
+}
+.form-submit-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 1.6rem;
+    padding: 1.2rem;
+}
+.form-success {
+    background: rgba(47, 107, 90, 0.2);
+    border: 1px solid var(--third-bg-color);
+    border-radius: 0.8rem;
+    padding: 1.6rem 2rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    color: #7ddfc3;
+    text-align: center;
+}
 .footer{
     font-family: "Poppins", sans-serif;
     font-weight: 400;

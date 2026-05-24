@@ -9,6 +9,26 @@ let currentData = []; // holds the last fetched dataset for client-side filterin
 // NCR PSGC prefix — NCR has no provinces, only cities/municipalities
 const NCR_PREFIX = '13';
 
+// Header display mapping for user-friendly column names
+const headerMapping = {
+    'region': 'Region',
+    'province': 'Province',
+    'municipality': 'Municipality',
+    'startDate': 'Start Date',
+    'CompletionDateActual': 'End Date',
+    'contractor': 'Contractor',
+    'ProjectComponentDescription': 'Project Description',
+    'ContractCost': 'Budget',
+};
+
+// Helper to convert key to display name
+function getDisplayName(key) {
+    return headerMapping[key] || key
+        .replace(/([A-Z])/g, ' $1')
+        .replace(/^./, str => str.toUpperCase())
+        .trim();
+}
+
 // Fetches all initial PSGC data to enable client-side filtering
 Promise.all([
     fetch('api/psgc.php?type=regions').then(async res => {
@@ -44,7 +64,7 @@ function renderTable(data) {
         const visibleKeys = keys.filter(k => !['latitude', 'longitude'].includes(k.toLowerCase()));
 
         let html = '<table><thead><tr>';
-        visibleKeys.forEach(key => html += `<th>${key}</th>`);
+        visibleKeys.forEach(key => html += `<th>${getDisplayName(key)}</th>`);
         html += '<th>Map</th>';
         html += '</tr></thead><tbody>';
 
@@ -52,7 +72,10 @@ function renderTable(data) {
             html += '<tr>';
 
             // Render only visible columns
-            visibleKeys.forEach(key => html += `<td>${row[key]}</td>`);
+            visibleKeys.forEach(key => {
+                const colClass = `col-${key.toLowerCase()}`;
+                html += `<td class="${colClass}">${row[key]}</td>`;
+            });
 
             // Retrieve lat/lng silently for map button
             const latKey = keys.find(k => k.toLowerCase() === 'latitude');

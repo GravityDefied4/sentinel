@@ -22,6 +22,7 @@
     <!-- Header -->
     <header class="header">
         <a href="/SILIP/public" class="header-title">Project SILIP</a>
+        <a href="/SILIP/public/auth/logout"><button class="gradient-btn">Logout</button></a>
     </header>
 
     <!-- Main Content -->

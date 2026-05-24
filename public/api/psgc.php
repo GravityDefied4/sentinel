@@ -23,19 +23,7 @@
                 echo json_encode($provinces, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
                 break;
 
-            // GET CITIES BY REGION (for NCR and other province-less regions)
-            case 'cities':
-                $regionCode = $_GET['region'] ?? null;
-                $cities = $psgcApi->Cities();
-                if ($regionCode) {
-                    $prefix = substr($regionCode, 0, 2);
-                    $cities = array_values(array_filter($cities, function($city) use ($prefix) {
-                        return substr($city['psgc_id'], 0, 2) === $prefix;
-                    }));
-                }
-                echo json_encode($cities, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-                break;
-
+            
             // INVALID TYPE
             default:
                 echo json_encode([

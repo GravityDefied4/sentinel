@@ -45,6 +45,46 @@ body {
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.248);
 }
 
+.header-logo{
+    width: 80px;
+    height: auto;
+    margin: 10px 0 0 10px;
+}
+.logo{
+    font-family: "Poppins", sans-serif;
+    font-size: 3.1rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-bottom: 5px;
+}
+.gradient-btn{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    width: 10rem;
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+    border-radius: 3rem;
+    background: linear-gradient(
+        90deg,
+        var(--third-text-color) 10%,
+        var(--third-bg-color) 100%
+    );
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    color: var(--second-bg-color);
+    border: none;
+    white-space: nowrap;
+    
+}
+.gradient-btn:hover{
+    color: var(--text-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--third-text-color), 0 0 30px var(--third-text-color);
+}
+
 .header-title {
     font-family: 'Syne', sans-serif;
     font-size: 2rem;
@@ -99,7 +139,7 @@ h1 {
     padding: 0.8rem 1rem;
     border: 1px solid rgba(47, 93, 140, 0.3);
     border-radius: 0.8rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(21, 19, 19, 0);
     color: var(--text-color);
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
@@ -115,7 +155,7 @@ h1 {
 .dropdown-container select:focus {
     outline: none;
     border-color: var(--main-color);
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--second-bg-color);
 }
 
 .dropdown-container select:disabled {
@@ -212,4 +252,28 @@ tr:last-child td {
 .dropdown-container input[type="text"]:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+/* Column Width Controls */
+td.col-region {
+    min-width: 100px;
+    max-width: 120px;
+}
+td.col-completiondateactual {
+    min-width: 100px;
+    max-width: 120px;
+}
+
+td.col-projectcomponentdescription {
+    min-width: 280px;
+    max-width: 320px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+td.col-contractor {
+    min-width: 110px;
+    max-width: 160px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
