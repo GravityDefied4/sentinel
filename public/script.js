@@ -1,12 +1,10 @@
 const regionSelect = document.getElementById('region');
 const provinceSelect = document.getElementById('province');
 const resultsTable = document.getElementById('resultsTable');
-
 let allRegions = [];
 let allProvinces = [];
 
 // Fetches all initial PSGC data to enable client-side filtering
-console.log("Fetching initial data...");
 Promise.all([
     fetch('api/psgc.php?type=regions').then(async res => {
         if (!res.ok) {
@@ -23,17 +21,14 @@ Promise.all([
         return res.json();
     })
 ]).then(([regions, provinces]) => {
-    console.log("Data loaded successfully.");
     allRegions = regions;
     allProvinces = provinces;
-
+    
     // Populates region dropdown
     regions.forEach(reg => {
         regionSelect.innerHTML += `<option value="${reg.psgc_id}">${reg.name}</option>`;
     });
-    console.log("Region dropdown populated.");
 }).catch(err => {
-    console.error("Error loading initial data:", err);
     resultsTable.innerHTML = `<p style="color: red;">Error loading initial data: ${err.message}. Check browser console for details.</p>`;
 });
 
@@ -42,10 +37,26 @@ function renderTable(data) {
     if (data.length > 0) {
         let html = '<table><thead><tr>';
         Object.keys(data[0]).forEach(key => html += `<th>${key}</th>`);
+        html += '<th>Map</th>';
         html += '</tr></thead><tbody>';
         data.forEach(row => {
             html += '<tr>';
             Object.values(row).forEach(val => html += `<td>${val}</td>`);
+            const keys = Object.keys(row);
+            
+            // Retrieves latitude and longitude for show map
+            const latKey = keys.find(k => k.toLowerCase() === 'latitude');
+            const lonKey = keys.find(k => k.toLowerCase() === 'longitude');
+            const lat = latKey ? row[latKey] : null;
+            const lon = lonKey ? row[lonKey] : null;
+            if (lat !== null && lon !== null && lat !== '' && lon !== '') {
+                
+                // Show Map button
+                const municipality = row['Municipality'] || 'Project Location';
+                html += `<td><button class="show-map-btn" onclick="window.open('map-preview.php?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}&municipality=${encodeURIComponent(municipality)}', 'MapPopup', 'width=800,height=600,resizable=yes')">Show Map</button></td>`;
+            } else {
+                html += '<td>N/A</td>';
+            }
             html += '</tr>';
         });
         html += '</tbody></table>';
@@ -61,7 +72,6 @@ function fetchAndDisplay(field, value) {
         .then(res => res.json())
         .then(data => renderTable(data))
         .catch(err => {
-            console.error("Error fetching projects:", err);
             resultsTable.innerHTML = '<p>Error fetching projects.</p>';
         });
 }
@@ -71,10 +81,9 @@ regionSelect.addEventListener('change', () => {
     provinceSelect.innerHTML = '<option value="">Select Province</option>';
     provinceSelect.disabled = true;
     resultsTable.innerHTML = '';
-
     if (regionSelect.value) {
         const prefix = regionSelect.value.substring(0, 2);
-        allProvinces.filter(prov => {return prov.psgc_id.substring(0, 2) === prefix;})
+        allProvinces.filter(prov => prov.psgc_id.substring(0, 2) === prefix)
             .forEach(prov => {
                 provinceSelect.innerHTML += `<option value="${prov.psgc_id}">${prov.name}</option>`;
             });
@@ -87,7 +96,6 @@ regionSelect.addEventListener('change', () => {
 
 provinceSelect.addEventListener('change', () => {
     resultsTable.innerHTML = '';
-
     if (provinceSelect.value) {
         // Shows projects for selected Province
         fetchAndDisplay('Province', provinceSelect.options[provinceSelect.selectedIndex].text);
