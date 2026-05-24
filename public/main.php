@@ -13,30 +13,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Project SILIP</title>
-    <style>
-        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .dropdown-container { margin-bottom: 20px; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project SILIP — Dashboard</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <!-- Dropdown for selecting locations -->
-    <div class="dropdown-container">
-        <label>Region:</label>
-        <select id="region">
-            <option value="">Select Region</option>
-        </select>
 
-        <label>Province:</label>
-        <select id="province" disabled>
-            <option value="">Select Province</option>
-        </select>
+    <!-- Header -->
+    <header class="header">
+        <a href="/SILIP/public" class="header-title">Project SILIP</a>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Flood Control Projects</h1>
+
+        <!-- Filters -->
+        <div class="dropdown-container">
+            <label for="region">
+                Region
+                <select id="region">
+                    <option value="">Select Region</option>
+                </select>
+            </label>
+
+            <label for="province">
+                <span id="provinceLabel">Province</span>
+                <select id="province" disabled>
+                    <option value="">All Provinces</option>
+                </select>
+            </label>
+
+            <label for="municipalitySearch">
+                Search Municipality
+                <input
+                    type="text"
+                    id="municipalitySearch"
+                    placeholder="e.g. Dagupan"
+                    disabled
+                />
+            </label>
+        </div>
+
+        <!-- Results Table -->
+        <div id="resultsTable">
+            <div class="empty-state">
+                <p>Select a region to view flood control projects.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Project Results Table -->
-    <div id="resultsTable"></div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
