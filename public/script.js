@@ -62,7 +62,7 @@ function renderTable(data) {
 
             if (lat !== null && lon !== null && lat !== '' && lon !== '') {
                 const municipality = row['Municipality'] || 'Project Location';
-                html += `<td><button class="show-map-btn" onclick="window.open('map-preview.php?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}&municipality=${encodeURIComponent(municipality)}', 'MapPopup', 'width=800,height=600,resizable=yes')">Show Map</button></td>`;
+                html += `<td><button class="show-map-btn" style="background: none; border: none; cursor: pointer; fill: white;" onclick="window.open('map-preview.php?lat=${encodeURIComponent(lat)}&lon=${encodeURIComponent(lon)}&municipality=${encodeURIComponent(municipality)}', 'MapPopup', 'width=800,height=600,resizable=yes')"><img src="images/map2.svg" alt="Show Map" style="width: 30px; height: 30px;"></button></td>`;
             } else {
                 html += '<td>N/A</td>';
             }

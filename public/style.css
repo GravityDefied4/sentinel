@@ -65,6 +65,9 @@ h3{
 p{
     font-family: "Poppins", sans-serif;
 }
+li{
+    font-family: "Poppins", sans-serif;
+}
 .header{
     position: fixed;
     width: 100%;
@@ -347,6 +350,7 @@ section{
     flex: 0 0 40%;
     width: 40%;
 }
+
 .home-logo{
     width: 33vw;
     animation: fadeInUp 0.8s ease-out;
@@ -365,7 +369,7 @@ section{
 }
 .home-content h3{
     margin: 1rem 0;
-    font-size: 3rem;
+    font-size: 2.5rem;
     animation: fadeInUp 0.9s ease-out 0.3s backwards;
 }
 .home-content p{
@@ -395,13 +399,12 @@ section{
     width: 45vw;
 }
 
-
-
-
-
 .footer{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
     background-color: var(--bg-color);
-    padding: 50px 0;
+    color: var(--text-color);
+    padding: 40px 0;
 }
 .footer ul{
     text-align: center;
