@@ -74,7 +74,13 @@ function renderTable(data) {
             // Render only visible columns
             visibleKeys.forEach(key => {
                 const colClass = `col-${key.toLowerCase()}`;
-                html += `<td class="${colClass}">${key === 'ContractCost' ? '₱' + Number(row[key]).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : row[key]}</td>`;
+                let cellValue = row[key];
+                if (key === 'ContractCost') cellValue = '₱' + Number(cellValue).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                if (key === 'StartDate' && cellValue) {
+                    const [m, d, y] = cellValue.split('/');
+                    cellValue = `${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+                }
+                html += `<td class="${colClass}">${cellValue}</td>`;
             });
 
             // Retrieve lat/lng silently for map button
