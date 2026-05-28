@@ -118,8 +118,8 @@ SILIP/
 │   ├── login-tracker.php  # Records user login history
 │   ├── politics.php       # Politicians/parties data helper (not integrated yet, as of 05/28/2026)
 │   └── Services/
-│       └── FloodControlService.php
-└── vendor/                # Composer-managed dependencies (not committed)
+│       └── FloodControlService.php  # Flood control projects data helpe/retriever
+└── vendor/                # Composer-managed dependencies
 ```
 
 ---
