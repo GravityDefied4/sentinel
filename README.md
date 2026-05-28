@@ -50,8 +50,7 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 GOOGLE_REDIRECT_URI=http://localhost/SILIP/public/auth/callback
  
 JWT_SECRET=replace-with-a-long-random-string-at-least-32-chars
- 
-# Database connection
+
 DB_HOST=localhost
 DB_PORT=3306
 DB_NAME=silip
