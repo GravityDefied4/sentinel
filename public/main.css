@@ -49,19 +49,16 @@ body {
 }
 
 .header-logo{
-    width: 80px;
+    width: 160px;
     height: auto;
     margin: 10px 0 0 10px;
+    display: block;
+    padding-bottom: 15px;
 }
 .logo{
-    font-family: "Poppins", sans-serif;
-    font-size: 3.1rem;
-    color: var(--text-color);
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    margin-bottom: 5px;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 }
 .gradient-btn{
     font-family: "Poppins", sans-serif;
@@ -149,6 +146,7 @@ h1 {
     color: var(--text-color);
     flex: 1;
     min-width: 200px;
+    text-align: left;
 }
 
 .dropdown-container select {
@@ -192,6 +190,7 @@ h1 {
 .results-wrapper {
     position: relative;
     min-height: 240px; /* provide a stable area for overlay centering */
+    margin-bottom: 2rem;
 }
 
 .loading-overlay {
@@ -236,18 +235,18 @@ table {
     margin: 0;
 }
 
+/* Table header: use a specific selector so it can't be accidentally overridden */
+#resultsTable table th,
 th {
-    background: linear-gradient(
-        90deg,
-        rgba(47, 93, 140, 0.25) 0%,
-        rgba(47, 107, 90, 0.15) 100%
-    );
+    background-color: var(--bg-color) !important;
+    background: none; /* reset any gradient that might be applied elsewhere */
     padding: 1.2rem;
     text-align: left;
     font-weight: 600;
     font-size: 1.3rem;
     color: var(--text-color);
     border-bottom: 2px solid rgba(47, 93, 140, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 td {
@@ -343,15 +342,14 @@ td.col-contractor {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin: 1.5rem auto;
+    margin: 2rem auto;
     max-width: fit-content;
     border-radius: 1rem;
-    
 }
 
 .pagination button {
     padding: 0.85rem 1.2rem;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 0.85rem;
@@ -367,7 +365,7 @@ td.col-contractor {
 }
 
 .pagination span {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--second-text-color);
     white-space: nowrap;
 }

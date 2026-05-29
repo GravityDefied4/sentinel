@@ -37,7 +37,7 @@
 }
 :root{
     --bg-color: #0B1F33; /* Primary Background - Deep Navy */
-    --second-bg-color: #121417; /* Secondary Background - Charcoal */
+    --second-bg-color: #000000; /* Secondary Background - Charcoal */
     --third-bg-color: #2F6B5A; /* Highlight Accent - Muted Emerald */
     --fourth-bg-color: #8B1E2D; /* Warning/Exposure Accent - Dark Crimson */
     --fifth-bg-color: rgba(11, 31, 51, 0.85); /* overlay using deep navy */
@@ -90,9 +90,9 @@ li{
     display: none;
 }
 .header-logo{
-    width: 80px;
+    width: 180px;
     height: auto;
-    margin: 10px 0 0 10px;
+    margin: 12px 0 0 10px;
 }
 .logo{
     font-family: "Poppins", sans-serif;
@@ -118,7 +118,7 @@ span{
 }
 .navbar a{
     font-family: "Poppins", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: var(--text-color);
     margin-left: 4rem;
     font-weight: 500;
@@ -205,6 +205,15 @@ section{
     min-height: 100vh;
     padding: 10rem 10%;
 }
+/* Section divider: slim white line centered within content width */
+.section-divider {
+    height: 1px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    background: rgba(255, 255, 255, 0.186);
+    border-radius: 1px;
+}
 .home{
     background:
         linear-gradient(
@@ -230,7 +239,8 @@ section{
 .features {
     background: linear-gradient(
         180deg,
-        var(--bg-color) 5%,
+        var(--second-bg-color) 0%,
+        var(--bg-color) 50%,
         var(--second-bg-color) 100%
     );
     color: var(--text-color);
@@ -313,7 +323,16 @@ section{
     line-height: -2;
     margin: 0;
 }
-.about,
+
+.about {
+    background: linear-gradient(
+        180deg,
+        var(--bg-color) 5%,
+        var(--second-bg-color) 100%
+    );
+    color: var(--text-color);
+}
+
 .contact {
     background: linear-gradient(
         180deg,

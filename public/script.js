@@ -3,6 +3,7 @@ const provinceSelect = document.getElementById('province');
 const municipalityLabel = document.getElementById('municipalityLabel');
 const municipalitySearch = document.getElementById('municipalitySearch');
 const resultsTable = document.getElementById('resultsTable');
+const paginationContainer = document.getElementById('paginationContainer');
 const loadingOverlay = document.getElementById('loadingOverlay');
 let allRegions = [];
 let allProvinces = [];
@@ -83,6 +84,7 @@ function renderPage(page) {
 
     if (data.length === 0) {
         resultsTable.innerHTML = '<div class="empty-state"><p>No projects found matching your search.</p></div>';
+        paginationContainer.innerHTML = '';
         return;
     }
 
@@ -135,15 +137,16 @@ function renderPage(page) {
     });
 
     html += '</tbody></table>';
-    html += `<div class="pagination" style="margin-top: 1rem;">
+    resultsTable.innerHTML = html;
+    
+    const paginationHTML = `<div class="pagination">
         <button onclick="renderPage(1)" ${page === 1 ? 'disabled' : ''}>«</button>
         <button onclick="renderPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>‹</button>
         <span>Page ${page} of ${totalPages} <small>(${data.length} projects)</small></span>
         <button onclick="renderPage(${page + 1})" ${page === totalPages ? 'disabled' : ''}>›</button>
         <button onclick="renderPage(${totalPages})" ${page === totalPages ? 'disabled' : ''}>»</button>
     </div>`;
-
-    resultsTable.innerHTML = html;
+    paginationContainer.innerHTML = paginationHTML;
 }
 
 // Filters currentData by municipality search term and re-renders
@@ -183,6 +186,7 @@ function fetchAndDisplay(field, value) {
         })
         .catch(err => {
             resultsTable.innerHTML = '<div class="empty-state"><p>Error fetching projects.</p></div>';
+            paginationContainer.innerHTML = '';
         })
         .finally(() => {
             hideLoader();

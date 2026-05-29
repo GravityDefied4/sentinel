@@ -21,7 +21,7 @@
 
     <!-- Header -->
     <header class="header">
-        <h1 href="" class="logo">Project<img src="images/logo1.png" alt="" class="header-logo"></h1>
+        <img src="images/logo3.png" alt="" class="header-logo">
         <a href="/SILIP/public/auth/logout"><button class="gradient-btn">Logout</button></a>
     </header>
 
@@ -64,10 +64,13 @@
             </div>
             <div id="resultsTable">
                 <div class="empty-state">
-                    <p></p>
+                    <p>Select a region to view flood control projects.</p>
                 </div>
             </div>
         </div>
+
+        <!-- Pagination -->
+        <div id="paginationContainer"></div>
     </div>
 
     <script src="script.js"></script>
